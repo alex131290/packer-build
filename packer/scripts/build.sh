@@ -11,7 +11,17 @@ sudo add-apt-repository multiverse
 
 sudo apt-get update
 
-sudo apt-get install nginx -y
+sudo apt-get install -y \
+    python2 \
+    nginx \
+    net-tools
+
+# Install pip2
+# This is needed for aws-cfn-bootstrap
+sudo python2 get-pip.py
+
+sudo pip2 install https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-latest.tar.gz
+
 sudo cp /home/$(whoami)/pkg/app/bin/app_linux64 /usr/local/bin/dragontail
 sudo chmod +x /usr/local/bin/dragontail
 
@@ -29,5 +39,5 @@ WantedBy=multi-user.target
 '
 sudo mv /etc/nginx/sites-available/default /etc/nginx/sites-available/default.disabled
 sudo cp /home/$(whoami)/pkg/nginx/default /etc/nginx/sites-available/default
-nginx -t
-sudo systemctl start dragontail.service 
+sudo nginx -t
+sudo systemctl enable dragontail.service 
