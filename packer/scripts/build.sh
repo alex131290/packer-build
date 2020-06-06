@@ -18,6 +18,7 @@ sudo apt-get install -y \
 
 # Install pip2
 # This is needed for aws-cfn-bootstrap
+curl https://bootstrap.pypa.io/get-pip.py --output get-pip.py
 sudo python2 get-pip.py
 
 sudo pip2 install https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-latest.tar.gz
