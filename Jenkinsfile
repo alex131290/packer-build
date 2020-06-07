@@ -23,7 +23,6 @@ pipeline {
         ansiColor('xterm')
     }
     stages {
-    stages {
         stage('Set display name') {
             steps {
                 script {
@@ -68,5 +67,4 @@ pipeline {
             }
         }
     }
-
 }
