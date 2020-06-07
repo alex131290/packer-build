@@ -4,7 +4,7 @@
 # http://www.gnu.org/software/bash/manual/html_node/The-Shopt-Builtin.html
 # Make shell to be case insensitive
 shopt -s nocasematch
-case "${FARM_NAME}" in
+case "${ENVIRONMENT}" in
     *dev* | *development*)
         export MAX_NUMBER_OF_INSTANCES=1
         echo "Deployment is dev, setting the number of maximum instances to ${MAX_NUMBER_OF_INSTANCES}"
